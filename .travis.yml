@@ -1,3 +1,13 @@
 language: python
 script:
-  - "python jsondata.py"
+- python jsondata.py
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: "$GITHUB_TOKEN"
+  keep_history: true
+  on:
+    branch: master
+env:
+  global:
+    secure: pevUdfIhtxNo8lkW17NSutGbwLCAK31mYw8nGSDswE5LzcFkj2GSUWRIAgPaF3MxmmPA/xAC2j/sL6G/0eaRCOdMjFD/kKZvx115V5YfINyQx1F5pLwWNxh6nmI3VFk3QkgXdweybsZwUicjfoekSScBcv8QbtDR6jwgGY/6ZeSQXT4ZkUCJj/Xnu4u0e8Bs+QUtrw8JmQ9iA8PcDND9tYvtIqyf1U43tvir1WjvTeSBE0krUCEF33YsvIop1dl4xf/3AwsTdoCxCZJZPFc3yh66Eb6+wtn5wxvvwaFipNVEJshaevY7A2KRrxKchB4q8h9MWF/yH4hCNJNVDH3Ea5A9rFHfGcDv4InWYNujLysyc5Yg971fJY7/qVsyZwdERdsbTCw5Tciz6pwJZm6KBflBpW4IiFJ0hPzXNrbffevckpJbz1+zS5wFuOXgzbwNS3TtO+pINVc8+BAJVvSc+RjRt3eGiORgHrpGdbvXVlfZykZoQzK9bwASMjaGMO0Mza2u1AP5bVIXCyAjUDfn/qjb2Sc3u/CxBGCt9X4Sbt17lg5RuF474SbTKpvx3Lp/Bak4+CcpssH1Ffd7N4AL5vBQ5QbzDxiIg05rtUjiC1gN0zxycpeEuEmlxNuW7xW0hSTIJ4WOv6+mc2oIAISNRFYYa+As94z9nSHifrTcgfc=
