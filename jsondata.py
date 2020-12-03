@@ -14,7 +14,7 @@ def retrieveData (startDate, endDate):
             filteredRows.append(row)
     sortedlist = sorted(filteredRows, key=itemgetter('SampleDate'))
     fig = px.line(sortedlist, x = "SampleDate", y = "MeasureValue", title = 'Historic Oxygen Levels')
-    fig.write_image("fig1.png")
+    fig.write_image("docs/fig1.png")
 
 now = datetime.now()
 startDate = now - timedelta(days = 365*2)
