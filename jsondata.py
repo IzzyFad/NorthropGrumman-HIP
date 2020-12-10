@@ -13,7 +13,7 @@ def retrieveData (startDate, endDate, parameterID, dataTitle,outputFileName, mea
         if row ["Depth"] == measuredDepth:
             filteredRows.append(row)
     sortedlist = sorted(filteredRows, key=itemgetter('SampleDate'))
-    fig = px.line(sortedlist, x = "SampleDate", y = "MeasureValue", title = dataTitle)
+    fig = px.line(sortedlist, x = "SampleDate", y = "MeasureValue", title = dataTitle, labels = {"MeasureValue": units, "SampleDate": "Dates"})
     fig.write_image("docs/{0}.png".format(outputFileName))
 
 now = datetime.now()
