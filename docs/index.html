@@ -1,18 +1,78 @@
 <!DOCTYPE>
 <html>
+
 <head>
-  <link rel = "stylesheet" href = "style.css" />
-  <title> Website Title </title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <title> Home </title>
 </head>
-  <body>
-    <h1> Website body H1 </h1>
-    <h2> Website body H2 </h2>
-    <a href="foo.html"> Link </a>
-    <img src="nitrogen.png" />
-    <img src="oxygen.png" />
-    <img src="phosphorous.png" />
-    <img src="temperature.png" />
-    <img src="turbidity.png" />
-    <p> bottom tiny text </p>
-  </body>
+
+<body>
+  <div id="container">
+    <div id="title">
+      <h1> Severn River Water Trends </h1>
+    </div>
+    <div id="link">
+      <ul>
+        <li> <a href="watertemp.html"> WATER TEMPERATURE </a> </li>
+        <li> <a href="phosphate.html"> PHOSPHATE LEVELS </a> </li>
+        <li> <a href="turbidity.html"> TURBIDITY </a> </li>
+        <li class="active"> <a href="index.html"> HOME </a> </li>
+        <li> <a href="oxygen.html"> OXYGEN LEVELS </a> </li>
+        <li> <a href="nitrate.html"> NITRATE LEVELS </a> </li>
+        <li> <a href="about.html"> ABOUT </a> </li>
+      </ul>
+      <hr />
+    </div>
+    <div id="content">
+      <div id="background-head">
+        <div id="parameter-title">
+          <h2> Is it safe to swim in the Severn River today? </h2>
+        </div>
+        <div id="safety-container">
+          <div id="safety-yes-no">
+            <h2> YES </h2>
+          </div>
+        </div>
+      </div>
+      <div id="conclusion-container">
+        <div id="left-side">
+          <img src="severn-picture.jpg" height="400" />
+        </div>
+        <div id="right-side">
+          <p> How We Come to This Conclusion: <br />
+            <span class="smaller"> Using data we came to the conclusion </span>
+          </p>
+        </div>
+      </div>
+    <div id="levels">
+      <div id="left-side">
+          <p> CURRENT* LEVELS: </p>
+          <p> <span class="highlight"> PHOSPHATE LEVELS </span> </p>
+          <p> <span class="highlight"> TURBIDITY </span> </p>
+          <p> <span class="highlight"> OXYGEN LEVELS </span> </p>
+          <p> <span class="highlight"> NITRATE LEVELS </span> </p>
+        </div>
+        <div id="right-side">
+          <p> Barriers/Max Levels: </p>
+          <p> <span class="highlight"> PHOSPHATE LEVELS </span> </p>
+          <p> <span class="highlight"> TURBIDITY </span> </p>
+          <p> <span class="highlight"> OXYGEN LEVELS </span> </p>
+          <p> <span class="highlight"> NITRATE LEVELS </span> </p>
+        </div>
+      </div>
+    <div id="updated-as-of">
+      <p> *UPDATED AS OF (------------) <br />
+          SEE ABOUT PAGE FOR INFORMATION ON DATA SOURCE
+      </p>
+      <div id="disclaimer">
+        <p> Disclaimer: This website is not intended to…. </p>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</body>
+
 </html>
