@@ -1,3 +1,187 @@
-h1 {
-  color: red;
+body{
+  font-family: 'Oswald', sans-serif;
+  background-image: url("backgroundChart.png");
+  background-position: center;
+  background-size: cover;
+}
+#container{
+margin: 65px;
+background-color: #e0e0e0;
+}
+
+#title{
+background-color: #607b7d;
+color: #e0e0e0;
+text-align: center;
+font-size: 25px;
+padding-top: 3px;
+padding-bottom: 3px;
+}
+
+#link li{
+display: inline;
+padding: 20px 15px 20px 15px;
+font-color: #3a606e;
+}
+
+#link {
+text-align: center;
+}
+
+#link .active{
+  font-weight: bold;
+}
+
+#link a{
+  text-decoration: none;
+}
+
+#background-head{
+background-color: #828e82;
+padding: 40px 30px 40px 30px;
+}
+
+#parameter-title{
+background-color: #3a606e;
+color: #e0e0e0;
+text-align: center;
+font-size: 19px;
+}
+
+#content{
+padding: 45px;
+}
+
+#parameter-description{
+background-color: #d1ddef;
+color: #3a606e;
+text-align:center;
+font-weight: lighter;
+font-size: 14px;
+margin-top: 5px;
+}
+
+#historical-trend-container , #data-sources, #conclusion-container{
+background-color: #3a606e;
+font-size: 40px;
+color: #d1ddef;
+padding-left: 50px;
+}
+
+#historical-trend-container{
+min-height: 550px;
+}
+
+#data-sources #right-side{
+color: #e0e0e0;
+font-size: 17px;
+}
+
+#historical-trend-container img{
+  float: right;
+  margin-right: 50px;
+}
+
+.highlight{
+  background-color: #aaae8e;
+  color: #3a6063;
+  font-weight: bold;
+}
+
+#data-words{
+  background-color: #cfe2f3;
+}
+
+#data-words div, #data-sources div, #conclusion-container div, #levels div{
+  display: inline-block;
+  width: 45%;
+  min-height: 200px;
+  vertical-align: top;
+  padding-top: 30px;
+}
+
+#updated-value {
+background-color: #aaae8e;
+font-size: 21px;
+color: #3a606e;
+padding: 60px;
+}
+
+#updated-value .highlight-alt{
+  background-color: #d1ddef;
+}
+
+#placeholder-value {
+  background-color: #d1ddef;
+  text-align: center;
+  margin-left: 84px;
+  margin-right: 84px;
+}
+
+#project-scope {
+  background-color: #607b7d;
+  color: #e0e0e0;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+  padding: 5px;
+}
+
+#project-goals {
+  background-color: #d1ddef;
+  color: #3a606e;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+  padding: 5px;
+}
+
+#learning-highlights {
+  background-color: #aaae8e;
+  color: #000000;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+  padding: 5px;
+}
+
+#safety-yes-no{
+  background-color: #d1ddef;
+  color: #3a606e;
+  text-align: center;
+  font-weight: lighter;
+  font-size: 14px;
+  margin-top: 5px;
+  width: 45%;
+}
+
+#safety-container{
+  display: flex;
+  justify-content: center;
+}
+
+.smaller{
+  font-size: 75%;
+}
+
+#levels{
+background-color: #d1ddef;
+color: #3a606e;
+font-weight: bold;
+size: 14px;
+padding-left: 30px;
+}
+
+#updated-as-of{
+background-color: #aaae8e;
+color: #000000;
+}
+
+#updated-as-of p{
+margin: 0;
+}
+
+
+#disclaimer{
+text-align: center;
 }

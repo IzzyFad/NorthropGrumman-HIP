@@ -1,0 +1,66 @@
+<!DOCTYPE>
+<html>
+
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <title> Phosphate </title>
+</head>
+
+<body>
+  <div id="container">
+    <div id="title">
+      <h1> Severn River Water Trends </h1>
+    </div>
+    <div id="link">
+      <ul>
+        <li> <a href="watertemp.html"> WATER TEMPERATURE </a> </li>
+        <li class="active"> <a href="phosphate.html"> PHOSPHATE LEVELS </a> </li>
+        <li> <a href="turbidity.html"> TURBIDITY </a> </li>
+        <li> <a href="index.html"> HOME </a> </li>
+        <li> <a href="oxygen.html"> OXYGEN LEVELS </a> </li>
+        <li> <a href="nitrate.html"> NITRATE LEVELS </a> </li>
+        <li> <a href="about.html"> ABOUT </a> </li>
+      </ul>
+      <hr />
+    </div>
+    <div id="content">
+      <div id="background-head">
+        <div id="parameter-title">
+          <h2> Phosphate Levels </h2>
+        </div>
+        <div id="parameter-description">
+          <h2> Parameter description/what it is/ what it reads </h2>
+        </div>
+      </div>
+      <div id="historical-trend-container">
+        <p> HISTORICAL <br /> TRENDS
+          <img src="phosphate.png" height="400" />
+        </p>
+      </div>
+      <div id="data-words">
+        <div id="left-side">
+          <p> <span class="highlight"> BASELINES/MAX LEVELS </span> </p>
+          <p> DESCRIPTION OF BASELINES </p>
+        </div>
+        <div id="right-side">
+          <p> <span class="highlight"> LOCATION OF DATA COLLECTION: </span> </p>
+          <p> COORDINATES </p>
+          <p> <span class="highlight"> DEPTH </span> </p>
+        </div>
+      </div>
+      <div id="updated-value">
+        <h1> <span class="highlight-alt"> &nbsp; MOST RECENT DATA VALUE: &nbsp; </span> </h1>
+        <div id="placeholder-value">
+          <h1> $datavalue </h1>
+        </div>
+        <div id="placeholder-value">
+          <h1> $date </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
