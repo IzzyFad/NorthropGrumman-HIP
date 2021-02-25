@@ -8,7 +8,9 @@ from string import Template
 
 
 def retrieveData (startDate, endDate, parameterID, dataTitle,outputFileName, measuredDepth, units, lineValue=None):
-    r = requests.get ('http://data.chesapeakebay.net/api.JSON/WaterQuality/WaterQuality/{0}/{1}/6/23/Station/1730/{2}'.format(startDate, endDate, parameterID))
+    url = 'http://data.chesapeakebay.net/api.JSON/WaterQuality/WaterQuality/{0}/{1}/0,1/6/23/Station/1730/{2}'.format(startDate, endDate, parameterID)
+    print(url)
+    r = requests.get (url)
     rows = json.loads (r.text)
     filteredRows = []
     for row in rows:
@@ -21,16 +23,18 @@ def retrieveData (startDate, endDate, parameterID, dataTitle,outputFileName, mea
     fig.write_image("docs/{0}.png".format(outputFileName))
     return sortedlist
 
-def fillParameterTemplate(filename, datavalue, date):
+def fillTemplate(filename, datavalues):
     file = open("./templates/"+filename,"rt")
     content = file.read()
     file.close()
     s = Template(content)
-    output = s.substitute(datavalue=datavalue, date=date[:10])
+    output = s.substitute(datavalues)
     outputFile = open("./docs/"+filename,"wt")
     outputFile.write(output)
     outputFile.close()
 
+def fillParameterTemplate(filename, datavalue, date):
+    fillTemplate(filename,{"datavalue": datavalue, "date": date[:10]})
 
 now = datetime.now()
 startDate = now - timedelta(days = 365*2)
@@ -51,3 +55,12 @@ fillParameterTemplate("turbidity.html", turbidity[len(turbidity)-1]["MeasureValu
 
 watertempdata = retrieveData (startFormat, endFormat, 123, "Historical Water Temperature Levels", "temperature", 4, "Degrees Celsius")
 fillParameterTemplate("watertemp.html", watertempdata[len(watertempdata)-1]["MeasureValue"], watertempdata[len(watertempdata)-1]["SampleDate"])
+
+fillTemplate("index.html", {
+    "watertemp": watertempdata[len(watertempdata)-1]["MeasureValue"],
+    "phosphate": phosphate[len(phosphate)-1]["MeasureValue"],
+    "turbidity": turbidity[len(turbidity)-1]["MeasureValue"],
+    "oxygen": oxygen[len(oxygen)-1]["MeasureValue"],
+    "nitrate": nitrate[len(nitrate)-1]["MeasureValue"],
+    "date": startFormat
+})
