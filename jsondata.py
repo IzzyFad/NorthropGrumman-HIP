@@ -42,25 +42,32 @@ startDate = now - timedelta(days = 365*2)
 startFormat = startDate.strftime("%m-%d-%Y")
 endFormat = now.strftime("%m-%d-%Y")
 oxygen = retrieveData (startFormat, endFormat, 31, "Historical Oxygen Levels", "oxygen", 8, "MG/L", 5)
+oxygenIsSafe = oxygen[len(oxygen)-1]["MeasureValue"] >= 5
 fillParameterTemplate("oxygen.html", oxygen[len(oxygen)-1]["MeasureValue"], oxygen[len(oxygen)-1]["SampleDate"])
 
-nitrate = retrieveData (startFormat, endFormat, 109, "Historical Total Nitrogen Levels", "nitrate", 0.5, "MG/L", 3)
+nitrate = retrieveData (startFormat, endFormat, 109, "Historical Total Nitrogen Levels", "nitrate", 0.5, "MG/L", 6)
+nitrateIsSafe = nitrate[len(nitrate)-1]["MeasureValue"] <= 6
 fillParameterTemplate("nitrate.html", nitrate[len(nitrate)-1]["MeasureValue"], nitrate[len(nitrate)-1]["SampleDate"])
 
-phosphate = retrieveData (startFormat, endFormat, 114, "Historical Total Phosphorous Levels", "phosphate", 0.5, "MG/L")
+phosphate = retrieveData (startFormat, endFormat, 114, "Historical Total Phosphorous Levels", "phosphate", 0.5, "MG/L", 0.05)
+phosphateIsSafe = phosphate[len(phosphate)-1]["MeasureValue"] <= 0.05
 fillParameterTemplate("phosphate.html", phosphate[len(phosphate)-1]["MeasureValue"], phosphate[len(phosphate)-1]["SampleDate"])
 
-turbidity = retrieveData (startFormat, endFormat, 85, "Historical Turbidity Levels", "turbidity", 0.5, "Meters")
+turbidity = retrieveData (startFormat, endFormat, 85, "Historical Turbidity Levels", "turbidity", 0.5, "Meters", 0.12)
+turbidityIsSafe = turbidity[len(turbidity)-1]["MeasureValue"] >= 0.12
 fillParameterTemplate("turbidity.html", turbidity[len(turbidity)-1]["MeasureValue"], turbidity[len(turbidity)-1]["SampleDate"])
 
 watertempdata = retrieveData (startFormat, endFormat, 123, "Historical Water Temperature Levels", "temperature", 4, "Degrees Celsius")
 fillParameterTemplate("watertemp.html", watertempdata[len(watertempdata)-1]["MeasureValue"], watertempdata[len(watertempdata)-1]["SampleDate"])
 
+isSafe = oxygenIsSafe and nitrateIsSafe and phosphateIsSafe and turbidityIsSafe
+
 fillTemplate("index.html", {
+    "safety": "YES" if isSafe else "NO",
     "watertemp": watertempdata[len(watertempdata)-1]["MeasureValue"],
     "phosphate": phosphate[len(phosphate)-1]["MeasureValue"],
     "turbidity": turbidity[len(turbidity)-1]["MeasureValue"],
     "oxygen": oxygen[len(oxygen)-1]["MeasureValue"],
     "nitrate": nitrate[len(nitrate)-1]["MeasureValue"],
-    "date": startFormat
+    "date": endFormat
 })
